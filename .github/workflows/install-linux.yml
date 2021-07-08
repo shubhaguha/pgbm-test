@@ -1,7 +1,6 @@
-name: build-on-linux
+name: install-on-linux
 on: [push]
 jobs:
-  # TODO: Create jobs to build wheel
   install-cpu-torch:
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +26,7 @@ jobs:
       - run: pip install numba
       - run: python examples/numba/example01_bostonhousing_cpu.py
   # install-gpu-torch:
-  #   runs-on: ubuntu-latest
+  #   runs-on: [self-hosted,gpu]
   #   steps:
   #     - uses: actions/checkout@v2
   #     - name: Set up Python 3.8
@@ -39,7 +38,7 @@ jobs:
   #     - run: pip install torch torchvision torchaudio
   #     - run: echo "???"
   # install-cpu-numba:
-  #   runs-on: ubuntu-latest
+  #   runs-on: [self-hosted,gpu]
   #   steps:
   #     - uses: actions/checkout@v2
   #     - name: Set up Python 3.8
